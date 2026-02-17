@@ -27,3 +27,13 @@ export type Lead = Prisma.LeadModel
  * 
  */
 export type Product = Prisma.ProductModel
+/**
+ * Model Event
+ * 
+ */
+export type Event = Prisma.EventModel
+/**
+ * Model Contact
+ * 
+ */
+export type Contact = Prisma.ContactModel

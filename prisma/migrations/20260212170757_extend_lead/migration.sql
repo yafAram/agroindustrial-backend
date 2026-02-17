@@ -1,0 +1,16 @@
+-- AlterTable
+ALTER TABLE "Lead" ADD COLUMN     "assigned_to" TEXT,
+ADD COLUMN     "city" TEXT,
+ADD COLUMN     "contact_method" TEXT,
+ADD COLUMN     "contacted" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "country" TEXT,
+ADD COLUMN     "ip" TEXT,
+ADD COLUMN     "notes" TEXT,
+ADD COLUMN     "referrer" TEXT,
+ADD COLUMN     "region" TEXT,
+ADD COLUMN     "user_agent" TEXT,
+ADD COLUMN     "utm_campaign" TEXT,
+ADD COLUMN     "utm_content" TEXT,
+ADD COLUMN     "utm_medium" TEXT,
+ADD COLUMN     "utm_source" TEXT,
+ADD COLUMN     "utm_term" TEXT;

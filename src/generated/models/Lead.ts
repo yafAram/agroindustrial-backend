@@ -40,7 +40,22 @@ export type LeadMinAggregateOutputType = {
   email: string | null
   phone: string | null
   source: string | null
+  utm_source: string | null
+  utm_medium: string | null
+  utm_campaign: string | null
+  utm_term: string | null
+  utm_content: string | null
+  referrer: string | null
+  ip: string | null
+  user_agent: string | null
+  city: string | null
+  region: string | null
+  country: string | null
   status: string | null
+  contacted: boolean | null
+  contact_method: string | null
+  assigned_to: string | null
+  notes: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -51,7 +66,22 @@ export type LeadMaxAggregateOutputType = {
   email: string | null
   phone: string | null
   source: string | null
+  utm_source: string | null
+  utm_medium: string | null
+  utm_campaign: string | null
+  utm_term: string | null
+  utm_content: string | null
+  referrer: string | null
+  ip: string | null
+  user_agent: string | null
+  city: string | null
+  region: string | null
+  country: string | null
   status: string | null
+  contacted: boolean | null
+  contact_method: string | null
+  assigned_to: string | null
+  notes: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,8 +92,23 @@ export type LeadCountAggregateOutputType = {
   email: number
   phone: number
   source: number
+  utm_source: number
+  utm_medium: number
+  utm_campaign: number
+  utm_term: number
+  utm_content: number
+  referrer: number
+  ip: number
+  user_agent: number
+  city: number
+  region: number
+  country: number
   meta: number
   status: number
+  contacted: number
+  contact_method: number
+  assigned_to: number
+  notes: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -84,7 +129,22 @@ export type LeadMinAggregateInputType = {
   email?: true
   phone?: true
   source?: true
+  utm_source?: true
+  utm_medium?: true
+  utm_campaign?: true
+  utm_term?: true
+  utm_content?: true
+  referrer?: true
+  ip?: true
+  user_agent?: true
+  city?: true
+  region?: true
+  country?: true
   status?: true
+  contacted?: true
+  contact_method?: true
+  assigned_to?: true
+  notes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -95,7 +155,22 @@ export type LeadMaxAggregateInputType = {
   email?: true
   phone?: true
   source?: true
+  utm_source?: true
+  utm_medium?: true
+  utm_campaign?: true
+  utm_term?: true
+  utm_content?: true
+  referrer?: true
+  ip?: true
+  user_agent?: true
+  city?: true
+  region?: true
+  country?: true
   status?: true
+  contacted?: true
+  contact_method?: true
+  assigned_to?: true
+  notes?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -106,8 +181,23 @@ export type LeadCountAggregateInputType = {
   email?: true
   phone?: true
   source?: true
+  utm_source?: true
+  utm_medium?: true
+  utm_campaign?: true
+  utm_term?: true
+  utm_content?: true
+  referrer?: true
+  ip?: true
+  user_agent?: true
+  city?: true
+  region?: true
+  country?: true
   meta?: true
   status?: true
+  contacted?: true
+  contact_method?: true
+  assigned_to?: true
+  notes?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -205,8 +295,23 @@ export type LeadGroupByOutputType = {
   email: string | null
   phone: string | null
   source: string | null
+  utm_source: string | null
+  utm_medium: string | null
+  utm_campaign: string | null
+  utm_term: string | null
+  utm_content: string | null
+  referrer: string | null
+  ip: string | null
+  user_agent: string | null
+  city: string | null
+  region: string | null
+  country: string | null
   meta: runtime.JsonValue | null
   status: string
+  contacted: boolean
+  contact_method: string | null
+  assigned_to: string | null
+  notes: string | null
   createdAt: Date
   updatedAt: Date
   _count: LeadCountAggregateOutputType | null
@@ -240,10 +345,26 @@ export type LeadWhereInput = {
   email?: Prisma.StringNullableFilter<"Lead"> | string | null
   phone?: Prisma.StringNullableFilter<"Lead"> | string | null
   source?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_source?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_medium?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_campaign?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_term?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_content?: Prisma.StringNullableFilter<"Lead"> | string | null
+  referrer?: Prisma.StringNullableFilter<"Lead"> | string | null
+  ip?: Prisma.StringNullableFilter<"Lead"> | string | null
+  user_agent?: Prisma.StringNullableFilter<"Lead"> | string | null
+  city?: Prisma.StringNullableFilter<"Lead"> | string | null
+  region?: Prisma.StringNullableFilter<"Lead"> | string | null
+  country?: Prisma.StringNullableFilter<"Lead"> | string | null
   meta?: Prisma.JsonNullableFilter<"Lead">
   status?: Prisma.StringFilter<"Lead"> | string
+  contacted?: Prisma.BoolFilter<"Lead"> | boolean
+  contact_method?: Prisma.StringNullableFilter<"Lead"> | string | null
+  assigned_to?: Prisma.StringNullableFilter<"Lead"> | string | null
+  notes?: Prisma.StringNullableFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
+  events?: Prisma.EventListRelationFilter
 }
 
 export type LeadOrderByWithRelationInput = {
@@ -252,10 +373,26 @@ export type LeadOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   source?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_source?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_medium?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_campaign?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_term?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  referrer?: Prisma.SortOrderInput | Prisma.SortOrder
+  ip?: Prisma.SortOrderInput | Prisma.SortOrder
+  user_agent?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  region?: Prisma.SortOrderInput | Prisma.SortOrder
+  country?: Prisma.SortOrderInput | Prisma.SortOrder
   meta?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  contacted?: Prisma.SortOrder
+  contact_method?: Prisma.SortOrderInput | Prisma.SortOrder
+  assigned_to?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  events?: Prisma.EventOrderByRelationAggregateInput
 }
 
 export type LeadWhereUniqueInput = Prisma.AtLeast<{
@@ -267,10 +404,26 @@ export type LeadWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringNullableFilter<"Lead"> | string | null
   phone?: Prisma.StringNullableFilter<"Lead"> | string | null
   source?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_source?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_medium?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_campaign?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_term?: Prisma.StringNullableFilter<"Lead"> | string | null
+  utm_content?: Prisma.StringNullableFilter<"Lead"> | string | null
+  referrer?: Prisma.StringNullableFilter<"Lead"> | string | null
+  ip?: Prisma.StringNullableFilter<"Lead"> | string | null
+  user_agent?: Prisma.StringNullableFilter<"Lead"> | string | null
+  city?: Prisma.StringNullableFilter<"Lead"> | string | null
+  region?: Prisma.StringNullableFilter<"Lead"> | string | null
+  country?: Prisma.StringNullableFilter<"Lead"> | string | null
   meta?: Prisma.JsonNullableFilter<"Lead">
   status?: Prisma.StringFilter<"Lead"> | string
+  contacted?: Prisma.BoolFilter<"Lead"> | boolean
+  contact_method?: Prisma.StringNullableFilter<"Lead"> | string | null
+  assigned_to?: Prisma.StringNullableFilter<"Lead"> | string | null
+  notes?: Prisma.StringNullableFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
+  events?: Prisma.EventListRelationFilter
 }, "id" | "email">
 
 export type LeadOrderByWithAggregationInput = {
@@ -279,8 +432,23 @@ export type LeadOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   source?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_source?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_medium?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_campaign?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_term?: Prisma.SortOrderInput | Prisma.SortOrder
+  utm_content?: Prisma.SortOrderInput | Prisma.SortOrder
+  referrer?: Prisma.SortOrderInput | Prisma.SortOrder
+  ip?: Prisma.SortOrderInput | Prisma.SortOrder
+  user_agent?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  region?: Prisma.SortOrderInput | Prisma.SortOrder
+  country?: Prisma.SortOrderInput | Prisma.SortOrder
   meta?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  contacted?: Prisma.SortOrder
+  contact_method?: Prisma.SortOrderInput | Prisma.SortOrder
+  assigned_to?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.LeadCountOrderByAggregateInput
@@ -299,8 +467,23 @@ export type LeadScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   phone?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   source?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  utm_source?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  utm_medium?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  utm_campaign?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  utm_term?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  utm_content?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  referrer?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  ip?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  user_agent?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  city?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  region?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  country?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   meta?: Prisma.JsonNullableWithAggregatesFilter<"Lead">
   status?: Prisma.StringWithAggregatesFilter<"Lead"> | string
+  contacted?: Prisma.BoolWithAggregatesFilter<"Lead"> | boolean
+  contact_method?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  assigned_to?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
+  notes?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Lead"> | Date | string
 }
@@ -310,10 +493,26 @@ export type LeadCreateInput = {
   email?: string | null
   phone?: string | null
   source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  ip?: string | null
+  user_agent?: string | null
+  city?: string | null
+  region?: string | null
+  country?: string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: string
+  contacted?: boolean
+  contact_method?: string | null
+  assigned_to?: string | null
+  notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  events?: Prisma.EventCreateNestedManyWithoutLeadInput
 }
 
 export type LeadUncheckedCreateInput = {
@@ -322,10 +521,26 @@ export type LeadUncheckedCreateInput = {
   email?: string | null
   phone?: string | null
   source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  ip?: string | null
+  user_agent?: string | null
+  city?: string | null
+  region?: string | null
+  country?: string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: string
+  contacted?: boolean
+  contact_method?: string | null
+  assigned_to?: string | null
+  notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  events?: Prisma.EventUncheckedCreateNestedManyWithoutLeadInput
 }
 
 export type LeadUpdateInput = {
@@ -333,10 +548,26 @@ export type LeadUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  events?: Prisma.EventUpdateManyWithoutLeadNestedInput
 }
 
 export type LeadUncheckedUpdateInput = {
@@ -345,10 +576,26 @@ export type LeadUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  events?: Prisma.EventUncheckedUpdateManyWithoutLeadNestedInput
 }
 
 export type LeadCreateManyInput = {
@@ -357,8 +604,23 @@ export type LeadCreateManyInput = {
   email?: string | null
   phone?: string | null
   source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  ip?: string | null
+  user_agent?: string | null
+  city?: string | null
+  region?: string | null
+  country?: string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: string
+  contacted?: boolean
+  contact_method?: string | null
+  assigned_to?: string | null
+  notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -368,8 +630,23 @@ export type LeadUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -380,8 +657,23 @@ export type LeadUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -392,8 +684,23 @@ export type LeadCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   source?: Prisma.SortOrder
+  utm_source?: Prisma.SortOrder
+  utm_medium?: Prisma.SortOrder
+  utm_campaign?: Prisma.SortOrder
+  utm_term?: Prisma.SortOrder
+  utm_content?: Prisma.SortOrder
+  referrer?: Prisma.SortOrder
+  ip?: Prisma.SortOrder
+  user_agent?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  region?: Prisma.SortOrder
+  country?: Prisma.SortOrder
   meta?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  contacted?: Prisma.SortOrder
+  contact_method?: Prisma.SortOrder
+  assigned_to?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -408,7 +715,22 @@ export type LeadMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   source?: Prisma.SortOrder
+  utm_source?: Prisma.SortOrder
+  utm_medium?: Prisma.SortOrder
+  utm_campaign?: Prisma.SortOrder
+  utm_term?: Prisma.SortOrder
+  utm_content?: Prisma.SortOrder
+  referrer?: Prisma.SortOrder
+  ip?: Prisma.SortOrder
+  user_agent?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  region?: Prisma.SortOrder
+  country?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  contacted?: Prisma.SortOrder
+  contact_method?: Prisma.SortOrder
+  assigned_to?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -419,7 +741,22 @@ export type LeadMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   source?: Prisma.SortOrder
+  utm_source?: Prisma.SortOrder
+  utm_medium?: Prisma.SortOrder
+  utm_campaign?: Prisma.SortOrder
+  utm_term?: Prisma.SortOrder
+  utm_content?: Prisma.SortOrder
+  referrer?: Prisma.SortOrder
+  ip?: Prisma.SortOrder
+  user_agent?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  region?: Prisma.SortOrder
+  country?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  contacted?: Prisma.SortOrder
+  contact_method?: Prisma.SortOrder
+  assigned_to?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -428,12 +765,21 @@ export type LeadSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
+export type LeadNullableScalarRelationFilter = {
+  is?: Prisma.LeadWhereInput | null
+  isNot?: Prisma.LeadWhereInput | null
+}
+
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -448,6 +794,173 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type LeadCreateNestedOneWithoutEventsInput = {
+  create?: Prisma.XOR<Prisma.LeadCreateWithoutEventsInput, Prisma.LeadUncheckedCreateWithoutEventsInput>
+  connectOrCreate?: Prisma.LeadCreateOrConnectWithoutEventsInput
+  connect?: Prisma.LeadWhereUniqueInput
+}
+
+export type LeadUpdateOneWithoutEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.LeadCreateWithoutEventsInput, Prisma.LeadUncheckedCreateWithoutEventsInput>
+  connectOrCreate?: Prisma.LeadCreateOrConnectWithoutEventsInput
+  upsert?: Prisma.LeadUpsertWithoutEventsInput
+  disconnect?: Prisma.LeadWhereInput | boolean
+  delete?: Prisma.LeadWhereInput | boolean
+  connect?: Prisma.LeadWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LeadUpdateToOneWithWhereWithoutEventsInput, Prisma.LeadUpdateWithoutEventsInput>, Prisma.LeadUncheckedUpdateWithoutEventsInput>
+}
+
+export type LeadCreateWithoutEventsInput = {
+  name?: string | null
+  email?: string | null
+  phone?: string | null
+  source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  ip?: string | null
+  user_agent?: string | null
+  city?: string | null
+  region?: string | null
+  country?: string | null
+  meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: string
+  contacted?: boolean
+  contact_method?: string | null
+  assigned_to?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type LeadUncheckedCreateWithoutEventsInput = {
+  id?: number
+  name?: string | null
+  email?: string | null
+  phone?: string | null
+  source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  ip?: string | null
+  user_agent?: string | null
+  city?: string | null
+  region?: string | null
+  country?: string | null
+  meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: string
+  contacted?: boolean
+  contact_method?: string | null
+  assigned_to?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type LeadCreateOrConnectWithoutEventsInput = {
+  where: Prisma.LeadWhereUniqueInput
+  create: Prisma.XOR<Prisma.LeadCreateWithoutEventsInput, Prisma.LeadUncheckedCreateWithoutEventsInput>
+}
+
+export type LeadUpsertWithoutEventsInput = {
+  update: Prisma.XOR<Prisma.LeadUpdateWithoutEventsInput, Prisma.LeadUncheckedUpdateWithoutEventsInput>
+  create: Prisma.XOR<Prisma.LeadCreateWithoutEventsInput, Prisma.LeadUncheckedCreateWithoutEventsInput>
+  where?: Prisma.LeadWhereInput
+}
+
+export type LeadUpdateToOneWithWhereWithoutEventsInput = {
+  where?: Prisma.LeadWhereInput
+  data: Prisma.XOR<Prisma.LeadUpdateWithoutEventsInput, Prisma.LeadUncheckedUpdateWithoutEventsInput>
+}
+
+export type LeadUpdateWithoutEventsInput = {
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type LeadUncheckedUpdateWithoutEventsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_medium?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_campaign?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_term?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utm_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referrer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ip?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user_agent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meta?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  contacted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contact_method?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type LeadCountOutputType
+ */
+
+export type LeadCountOutputType = {
+  events: number
+}
+
+export type LeadCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  events?: boolean | LeadCountOutputTypeCountEventsArgs
+}
+
+/**
+ * LeadCountOutputType without action
+ */
+export type LeadCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LeadCountOutputType
+   */
+  select?: Prisma.LeadCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * LeadCountOutputType without action
+ */
+export type LeadCountOutputTypeCountEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EventWhereInput
+}
 
 
 export type LeadSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -456,10 +969,27 @@ export type LeadSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   email?: boolean
   phone?: boolean
   source?: boolean
+  utm_source?: boolean
+  utm_medium?: boolean
+  utm_campaign?: boolean
+  utm_term?: boolean
+  utm_content?: boolean
+  referrer?: boolean
+  ip?: boolean
+  user_agent?: boolean
+  city?: boolean
+  region?: boolean
+  country?: boolean
   meta?: boolean
   status?: boolean
+  contacted?: boolean
+  contact_method?: boolean
+  assigned_to?: boolean
+  notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  events?: boolean | Prisma.Lead$eventsArgs<ExtArgs>
+  _count?: boolean | Prisma.LeadCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lead"]>
 
 export type LeadSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -468,8 +998,23 @@ export type LeadSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email?: boolean
   phone?: boolean
   source?: boolean
+  utm_source?: boolean
+  utm_medium?: boolean
+  utm_campaign?: boolean
+  utm_term?: boolean
+  utm_content?: boolean
+  referrer?: boolean
+  ip?: boolean
+  user_agent?: boolean
+  city?: boolean
+  region?: boolean
+  country?: boolean
   meta?: boolean
   status?: boolean
+  contacted?: boolean
+  contact_method?: boolean
+  assigned_to?: boolean
+  notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["lead"]>
@@ -480,8 +1025,23 @@ export type LeadSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   email?: boolean
   phone?: boolean
   source?: boolean
+  utm_source?: boolean
+  utm_medium?: boolean
+  utm_campaign?: boolean
+  utm_term?: boolean
+  utm_content?: boolean
+  referrer?: boolean
+  ip?: boolean
+  user_agent?: boolean
+  city?: boolean
+  region?: boolean
+  country?: boolean
   meta?: boolean
   status?: boolean
+  contacted?: boolean
+  contact_method?: boolean
+  assigned_to?: boolean
+  notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["lead"]>
@@ -492,25 +1052,63 @@ export type LeadSelectScalar = {
   email?: boolean
   phone?: boolean
   source?: boolean
+  utm_source?: boolean
+  utm_medium?: boolean
+  utm_campaign?: boolean
+  utm_term?: boolean
+  utm_content?: boolean
+  referrer?: boolean
+  ip?: boolean
+  user_agent?: boolean
+  city?: boolean
+  region?: boolean
+  country?: boolean
   meta?: boolean
   status?: boolean
+  contacted?: boolean
+  contact_method?: boolean
+  assigned_to?: boolean
+  notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type LeadOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phone" | "source" | "meta" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["lead"]>
+export type LeadOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "phone" | "source" | "utm_source" | "utm_medium" | "utm_campaign" | "utm_term" | "utm_content" | "referrer" | "ip" | "user_agent" | "city" | "region" | "country" | "meta" | "status" | "contacted" | "contact_method" | "assigned_to" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["lead"]>
+export type LeadInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  events?: boolean | Prisma.Lead$eventsArgs<ExtArgs>
+  _count?: boolean | Prisma.LeadCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type LeadIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type LeadIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $LeadPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Lead"
-  objects: {}
+  objects: {
+    events: Prisma.$EventPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string | null
     email: string | null
     phone: string | null
     source: string | null
+    utm_source: string | null
+    utm_medium: string | null
+    utm_campaign: string | null
+    utm_term: string | null
+    utm_content: string | null
+    referrer: string | null
+    ip: string | null
+    user_agent: string | null
+    city: string | null
+    region: string | null
+    country: string | null
     meta: runtime.JsonValue | null
     status: string
+    contacted: boolean
+    contact_method: string | null
+    assigned_to: string | null
+    notes: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["lead"]>
@@ -907,6 +1505,7 @@ readonly fields: LeadFieldRefs;
  */
 export interface Prisma__LeadClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  events<T extends Prisma.Lead$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Lead$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -941,8 +1540,23 @@ export interface LeadFieldRefs {
   readonly email: Prisma.FieldRef<"Lead", 'String'>
   readonly phone: Prisma.FieldRef<"Lead", 'String'>
   readonly source: Prisma.FieldRef<"Lead", 'String'>
+  readonly utm_source: Prisma.FieldRef<"Lead", 'String'>
+  readonly utm_medium: Prisma.FieldRef<"Lead", 'String'>
+  readonly utm_campaign: Prisma.FieldRef<"Lead", 'String'>
+  readonly utm_term: Prisma.FieldRef<"Lead", 'String'>
+  readonly utm_content: Prisma.FieldRef<"Lead", 'String'>
+  readonly referrer: Prisma.FieldRef<"Lead", 'String'>
+  readonly ip: Prisma.FieldRef<"Lead", 'String'>
+  readonly user_agent: Prisma.FieldRef<"Lead", 'String'>
+  readonly city: Prisma.FieldRef<"Lead", 'String'>
+  readonly region: Prisma.FieldRef<"Lead", 'String'>
+  readonly country: Prisma.FieldRef<"Lead", 'String'>
   readonly meta: Prisma.FieldRef<"Lead", 'Json'>
   readonly status: Prisma.FieldRef<"Lead", 'String'>
+  readonly contacted: Prisma.FieldRef<"Lead", 'Boolean'>
+  readonly contact_method: Prisma.FieldRef<"Lead", 'String'>
+  readonly assigned_to: Prisma.FieldRef<"Lead", 'String'>
+  readonly notes: Prisma.FieldRef<"Lead", 'String'>
   readonly createdAt: Prisma.FieldRef<"Lead", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Lead", 'DateTime'>
 }
@@ -962,6 +1576,10 @@ export type LeadFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * Filter, which Lead to fetch.
    */
   where: Prisma.LeadWhereUniqueInput
@@ -980,6 +1598,10 @@ export type LeadFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * Filter, which Lead to fetch.
    */
   where: Prisma.LeadWhereUniqueInput
@@ -997,6 +1619,10 @@ export type LeadFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Lead
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
   /**
    * Filter, which Lead to fetch.
    */
@@ -1046,6 +1672,10 @@ export type LeadFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * Filter, which Lead to fetch.
    */
   where?: Prisma.LeadWhereInput
@@ -1094,6 +1724,10 @@ export type LeadFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * Filter, which Leads to fetch.
    */
   where?: Prisma.LeadWhereInput
@@ -1136,6 +1770,10 @@ export type LeadCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Lead
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
   /**
    * The data needed to create a Lead.
    */
@@ -1184,6 +1822,10 @@ export type LeadUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Lead
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
   /**
    * The data needed to update a Lead.
    */
@@ -1251,6 +1893,10 @@ export type LeadUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * The filter to search for the Lead to update in case it exists.
    */
   where: Prisma.LeadWhereUniqueInput
@@ -1277,6 +1923,10 @@ export type LeadDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
+  /**
    * Filter which Lead to delete.
    */
   where: Prisma.LeadWhereUniqueInput
@@ -1297,6 +1947,30 @@ export type LeadDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * Lead.events
+ */
+export type Lead$eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Event
+   */
+  select?: Prisma.EventSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Event
+   */
+  omit?: Prisma.EventOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EventInclude<ExtArgs> | null
+  where?: Prisma.EventWhereInput
+  orderBy?: Prisma.EventOrderByWithRelationInput | Prisma.EventOrderByWithRelationInput[]
+  cursor?: Prisma.EventWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EventScalarFieldEnum | Prisma.EventScalarFieldEnum[]
+}
+
+/**
  * Lead without action
  */
 export type LeadDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1308,4 +1982,8 @@ export type LeadDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the Lead
    */
   omit?: Prisma.LeadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LeadInclude<ExtArgs> | null
 }

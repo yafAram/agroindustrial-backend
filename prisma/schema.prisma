@@ -1,6 +1,6 @@
 generator client {
-  provider = "prisma-client"    
-  output   = "../src/generated" 
+  provider = "prisma-client"
+  output   = "../src/generated"
 }
 
 datasource db {
@@ -8,15 +8,37 @@ datasource db {
 }
 
 model Lead {
-  id        Int      @id @default(autoincrement())
-  name      String?
-  email     String?  @unique
-  phone     String?
-  source    String?  // landing, whatsapp, ads...
-  meta      Json?    // utm, metadata
-  status    String   @default("new")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int      @id @default(autoincrement())
+  name           String?
+  email          String?  @unique
+  phone          String?
+  source         String? // landing, whatsapp, ads...
+  // UTM fields (útiles para atribución)
+  utm_source     String?
+  utm_medium     String?
+  utm_campaign   String?
+  utm_term       String?
+  utm_content    String?
+  // Tracking / contexto
+  referrer       String? // página previa
+  ip             String? // ip del visitante
+  user_agent     String? // navegador / UA
+  // Geo / localización (si la capturas)
+  city           String?
+  region         String?
+  country        String?
+  // Meta flexible para datos extra (formularios dinámicos, tags, etc.)
+  meta           Json?
+  // Estado y gestión
+  status         String   @default("new") // new, contacted, qualified, lost...
+  contacted      Boolean  @default(false)
+  contact_method String? // "whatsapp", "email", "phone", "none"
+  assigned_to    String? // id o email de quien lo atiende
+  notes          String? // notas internas
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  events Event[]
 }
 
 model Product {
@@ -26,4 +48,61 @@ model Product {
   price       Float?
   sku         String?
   createdAt   DateTime @default(now())
+}
+
+model Event {
+  id        Int      @id @default(autoincrement())
+  type      String
+  payload   Json?
+  leadId    Int?
+  lead      Lead?    @relation(fields: [leadId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+
+enum ContactStatus {
+  new
+  contacted
+  qualified
+  converted
+  rejected
+}
+
+model Contact {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String
+  phone         String
+
+  source        String?
+  utm_source    String?
+  utm_medium    String?
+  utm_campaign  String?
+  utm_term      String?
+  utm_content   String?
+  referrer      String?
+
+  ip            String?
+  user_agent    String?
+
+  city          String?
+  region        String?
+  country       String?
+
+  meta          Json     @default("{}")
+
+  status        ContactStatus @default(new)
+  contacted     Boolean  @default(false)
+  contact_method String?
+  assigned_to   String?
+  notes         String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([email])
+  @@index([phone])
+  @@index([utm_source])
+  @@index([createdAt])
+  @@index([status])
 }

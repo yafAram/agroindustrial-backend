@@ -10,4 +10,6 @@
  */
 export type * from './models/Lead.js'
 export type * from './models/Product.js'
+export type * from './models/Event.js'
+export type * from './models/Contact.js'
 export type * from './commonInputTypes.js'

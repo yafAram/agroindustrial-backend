@@ -52,7 +52,9 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Lead: 'Lead',
-  Product: 'Product'
+  Product: 'Product',
+  Event: 'Event',
+  Contact: 'Contact'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -77,8 +79,23 @@ export const LeadScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   source: 'source',
+  utm_source: 'utm_source',
+  utm_medium: 'utm_medium',
+  utm_campaign: 'utm_campaign',
+  utm_term: 'utm_term',
+  utm_content: 'utm_content',
+  referrer: 'referrer',
+  ip: 'ip',
+  user_agent: 'user_agent',
+  city: 'city',
+  region: 'region',
+  country: 'country',
   meta: 'meta',
   status: 'status',
+  contacted: 'contacted',
+  contact_method: 'contact_method',
+  assigned_to: 'assigned_to',
+  notes: 'notes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -98,6 +115,47 @@ export const ProductScalarFieldEnum = {
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
 
 
+export const EventScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  payload: 'payload',
+  leadId: 'leadId',
+  createdAt: 'createdAt'
+} as const
+
+export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const ContactScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  source: 'source',
+  utm_source: 'utm_source',
+  utm_medium: 'utm_medium',
+  utm_campaign: 'utm_campaign',
+  utm_term: 'utm_term',
+  utm_content: 'utm_content',
+  referrer: 'referrer',
+  ip: 'ip',
+  user_agent: 'user_agent',
+  city: 'city',
+  region: 'region',
+  country: 'country',
+  meta: 'meta',
+  status: 'status',
+  contacted: 'contacted',
+  contact_method: 'contact_method',
+  assigned_to: 'assigned_to',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -112,6 +170,13 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {

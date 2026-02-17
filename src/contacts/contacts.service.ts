@@ -1,19 +1,38 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service.js';
-import { CreateContactDto } from './dto/create-contact.dto.js';
+import { LeadsService } from '../leads/leads.service.js';
+import { AnalyticsService } from '../analytics/analytics.service.js';
+import { IntegrationsService } from '../integrations/integrations.service.js';
 
 @Injectable()
 export class ContactsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private readonly leadsService: LeadsService,
+    private readonly analyticsService: AnalyticsService,
+    private readonly integrationsService: IntegrationsService,
+  ) {}
 
-  async create(data: CreateContactDto) {
-    return this.prisma.lead.create({
+  async handleContact(dto: any) {
+    // 1️⃣ Upsert Lead
+    const lead = await this.leadsService.upsert(dto);
+
+    // 2️⃣ Track Event
+    await this.analyticsService.track({
+      type: 'contact_submit',
       data: {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        meta: { message: data.message },
+        ...dto,
+        leadId: lead.id,
       },
     });
+
+    // 3️⃣ Disparar integraciones externas
+    await this.integrationsService.dispatch({
+      lead,
+      event: 'contact_submit',
+    });
+
+    return {
+      success: true,
+      leadId: lead.id,
+    };
   }
 }
